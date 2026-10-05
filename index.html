@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kinesis | Smart sports equipment</title>
+  <meta name="description" content="Kinesis makes sports equipment with motion sensors built in. The app shows you the data from every session, and the AI coach tells you what to work on.">
+  <meta name="theme-color" content="#0b1017">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="home">
+  <header id="site-header"></header>
+
+  <main>
+    <!-- ============ 3D product hero ============ -->
+    <section class="hero tone-a" aria-label="Product viewer">
+      <div class="hero-stage">
+        <canvas aria-label="Interactive 3D product model. Drag to rotate."></canvas>
+        <div class="hero-callouts" aria-hidden="true"><svg></svg></div>
+
+        <div class="hero-meta">
+          <span class="mono"><span data-count><b>01</b> / 04</span> &nbsp;·&nbsp; Instrumented series</span>
+        </div>
+
+        <button class="hero-arrow prev" type="button" aria-label="Previous product">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 5l-7 7 7 7"/></svg>
+        </button>
+        <button class="hero-arrow next" type="button" aria-label="Next product">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 5l7 7-7 7"/></svg>
+        </button>
+
+        <div class="hero-bottom">
+          <a class="hero-name" href="shop.html#impact">
+            <span class="big">Boxing</span>
+            <span class="sub"><span class="sub-text">Impact · ₹12,999</span><span class="go">↗</span></span>
+          </a>
+          <div class="dots" role="group" aria-label="Choose a product"></div>
+        </div>
+
+        <div class="hero-loading mono" aria-hidden="true"><span></span>Loading model</div>
+        <div class="hero-fallback"><p class="mono">3D view needs WebGL. Try a recent version of Chrome, Edge, Safari or Firefox.</p></div>
+      </div>
+
+      <div class="hero-tools">
+        <span class="drag-hint mono">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12h16M4 12l3-3M4 12l3 3M20 12l-3-3M20 12l-3 3M12 4v16M12 4l-3 3M12 4l3 3M12 20l-3-3M12 20l3-3"/></svg>
+          Drag to rotate
+        </span>
+        <button class="exo-toggle" type="button" aria-pressed="false">
+          <span>Exoskeleton</span><span class="sw" aria-hidden="true"></span>
+        </button>
+      </div>
+      <div class="hero-list" aria-live="polite"></div>
+    </section>
+
+    <!-- ============ Statement band ============ -->
+    <section class="band">
+      <div class="band-slides" aria-hidden="true">
+        <img src="assets/img/band-boxing.jpg" alt="">
+        <img src="assets/img/band-tennis.jpg" alt="" loading="lazy">
+        <img src="assets/img/band-pickleball.jpg" alt="" loading="lazy">
+        <img src="assets/img/band-golf.jpg" alt="" loading="lazy">
+      </div>
+      <div class="wrap">
+        <span class="eyebrow reveal">Why Kinesis</span>
+        <blockquote class="h-lg reveal" data-delay="1">DATA INSIGHTS YOU NEVER HAD BEFORE</blockquote>
+        <p class="fine reveal" data-delay="2">Your equipment tracks your motion to give you quantitative analysis of your gameplay.</p>
+      </div>
+    </section>
+
+    <!-- ============ How it works ============ -->
+    <section class="section how tone-b" id="how">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="reveal">
+            <span class="eyebrow">How it works</span>
+            <h2 class="h-lg">BUILT INTO THE GEAR<br>NO EXTERNAL SETUP NEEDED</h2>
+          </div>
+        </div>
+
+        <div class="steps">
+          <article class="step reveal">
+            <div class="step-media">
+              <img src="assets/img/how-train-pads.jpg" alt="A boxer working pads with a coach" loading="lazy">
+              <span class="tag">Session live</span>
+            </div>
+            <div class="step-body">
+              <span class="num">01 · Train</span>
+              <h3 class="h-md">Play like you normally do</h3>
+              <p>The sensors live inside your equipment. Pair once over Bluetooth and forget they're there.</p>
+            </div>
+          </article>
+
+          <article class="step reveal" data-delay="1">
+            <div class="step-media">
+              <div class="trace" aria-hidden="true">
+                <div class="trace-head"><span class="mono">IMU · 1000 Hz</span><span class="mono">R3 · 01:42</span></div>
+                <svg viewBox="0 0 300 160" preserveAspectRatio="none" id="trace-svg"></svg>
+                <div class="scan"></div>
+                <div class="trace-read">
+                  <div><b class="hl">Hook</b><span>Classified</span></div>
+                  <div><b>8.4</b><span>m/s</span></div>
+                  <div><b>92</b><span>Form score</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="step-body">
+              <span class="num">02 · Measure</span>
+              <h3 class="h-md">Every rep gets recorded</h3>
+              <p>The sensors record how your equipment moves and rotates, 1,000 times a second. When you finish, the session shows up in the app.</p>
+            </div>
+          </article>
+
+          <article class="step reveal" data-delay="2">
+            <div class="step-media">
+              <img src="assets/img/how-coach-phone.jpg" alt="An athlete reading feedback on his phone" loading="lazy">
+              <span class="tag">Coach · new insight</span>
+            </div>
+            <div class="step-body">
+              <span class="num">03 · Improve</span>
+              <h3 class="h-md">See what to work on</h3>
+              <p>The AI coach compares every rep with your own best reps, then tells you what to fix and which drill to use.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Order ============ -->
+    <section class="section tone-a" id="order">
+      <div class="wrap">
+        <div class="order reveal">
+          <div class="order-copy">
+            <div>
+              <span class="eyebrow">Order</span>
+              <h2 class="h-lg">Choose your sport</h2>
+              <p class="lede">Every product with sensors comes with 3 months of the AI coach for free.</p>
+            </div>
+            <ul class="order-list" id="order-list"></ul>
+            <div class="order-cta">
+              <a class="btn btn--primary" id="order-now" href="shop.html#impact">Order now <span class="arrow">→</span></a>
+              <span class="mono" id="order-label"></span>
+            </div>
+          </div>
+          <div class="order-media">
+            <img id="order-img" src="assets/img/shop-impact.jpg" alt="">
+            <span class="badge">Sensor inside</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer"></footer>
+
+  <script type="importmap">
+    { "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.159.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.159.0/examples/jsm/"
+    } }
+  </script>
+  <script src="assets/js/products.js"></script>
+  <script src="assets/js/site.js"></script>
+  <script src="assets/js/hero3d.js"></script>
+  <script type="module">
+    // Load Three.js as ES modules from the CDN, then hand it to hero3d.js.
+    import * as THREE from 'three';
+    import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+    import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+    import { MeshoptDecoder } from 'three/addons/libs/meshopt_decoder.module.js';
+    window.THREE = Object.assign({}, THREE, { GLTFLoader, RoomEnvironment, MeshoptDecoder });
+    window.dispatchEvent(new Event('kinesis:three'));
+  </script>
+  <script>
+    /* Sensor trace for step 02: three axes with punch bursts. */
+    (function () {
+      var svg = document.getElementById('trace-svg');
+      var bursts = [40, 95, 150, 210, 262];
+      function path(amp, freq, phase, noise) {
+        var d = '';
+        for (var x = 0; x <= 300; x += 2) {
+          var y = 80, e = 0;
+          bursts.forEach(function (b) { e += Math.exp(-Math.pow((x - b) / 9, 2)); });
+          y -= Math.sin(x * freq + phase) * amp * e + Math.sin(x * .9 + phase) * noise;
+          d += (x ? 'L' : 'M') + x + ' ' + y.toFixed(1);
+        }
+        return d;
+      }
+      var html = '';
+      bursts.forEach(function (b) { html += '<line class="rep" x1="' + b + '" x2="' + b + '" y1="6" y2="154"/>'; });
+      html += '<path class="az" d="' + path(22, .31, 2, 1.2) + '"/>';
+      html += '<path class="ay" d="' + path(40, .22, 1, 1.5) + '"/>';
+      html += '<path class="ax" d="' + path(62, .17, 0, 2) + '"/>';
+      svg.innerHTML = html;
+    })();
+
+    /* Order section follows the carousel (and can drive it). */
+    (function () {
+      var list = document.getElementById('order-list');
+      var btn = document.getElementById('order-now');
+      var label = document.getElementById('order-label');
+      var img = document.getElementById('order-img');
+      var items = KINESIS.products.filter(function (p) { return p.group === 'instrumented'; });
+      var current = null;
+
+      items.forEach(function (p, i) {
+        var li = document.createElement('li');
+        li.innerHTML = '<button type="button" data-id="' + p.id + '"><span class="i">0' + (i + 1) + '</span>' +
+          '<span class="n">' + p.name + '<small>' + p.sport + '</small></span>' +
+          '<span class="p">' + KINESIS.formatINR(p.price) + '</span></button>';
+        li.firstChild.addEventListener('click', function () {
+          select(p.id);
+          if (KINESIS.heroApi) KINESIS.heroApi.goTo(i);
+        });
+        list.appendChild(li);
+      });
+
+      function select(id) {
+        if (id === current) return;
+        current = id;
+        var p = KINESIS.byId(id);
+        btn.href = 'shop.html#' + id;
+        btn.firstChild.textContent = 'Order the ' + p.name + ' ';
+        label.textContent = p.type;
+        Array.prototype.forEach.call(list.querySelectorAll('button'), function (b) {
+          b.setAttribute('aria-current', b.dataset.id === id ? 'true' : 'false');
+        });
+        img.alt = p.name + ', ' + p.type.toLowerCase();
+        if (img.getAttribute('src') === p.img) return;
+        img.classList.add('out');
+        setTimeout(function () {
+          img.onload = function () { img.classList.remove('out'); };
+          img.src = p.img;
+        }, 250);
+      }
+      window.addEventListener('kinesis:slide', function (e) { select(e.detail.id); });
+      select('impact');
+    })();
+  </script>
+</body>
+</html>

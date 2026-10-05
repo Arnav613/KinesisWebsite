@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kinesis Coach | AI coach</title>
+  <meta name="description" content="Kinesis Coach looks at the data from your equipment and tells you what to work on.">
+  <meta name="theme-color" content="#0b1017">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="app">
+  <header id="site-header"></header>
+
+  <main>
+    <section class="tone-a">
+    <div class="wrap app-hero">
+      <div>
+        <span class="eyebrow reveal">Kinesis Coach</span>
+        <h1 class="h-xl reveal" data-delay="1">Your AI coach</h1>
+        <p class="lede reveal" data-delay="2">After each session, Kinesis Coach goes through the data from your equipment and tells you what to work on next. It also picks up habits you might not notice yourself.</p>
+      </div>
+      <div class="phone-ph reveal" data-delay="2">
+        <div class="ph"><span>App screenshot: home screen</span></div>
+      </div>
+    </div>
+    </section>
+
+    <section class="section tone-b">
+      <div class="wrap">
+        <div class="coach-grid reveal">
+          <div>
+            <span class="num">01</span>
+            <h3 class="h-md">Spots bad habits</h3>
+            <p>Things like a dropping elbow or a late wrist show up in the data well before you or your coach would notice them.</p>
+          </div>
+          <div>
+            <span class="num">02</span>
+            <h3 class="h-md">Tracks fatigue</h3>
+            <p>Shows the point in a session where your technique starts to slip because you are getting tired.</p>
+          </div>
+          <div>
+            <span class="num">03</span>
+            <h3 class="h-md">Compares you with yourself</h3>
+            <p>Every rep is scored against your own best reps, so the targets are realistic for you.</p>
+          </div>
+          <div>
+            <span class="num">04</span>
+            <h3 class="h-md">Gives you drills</h3>
+            <p>You get one thing to fix per session and a drill for it. The app tracks your progress week by week.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section tone-a">
+      <div class="wrap">
+        <div class="insight reveal" id="insight">
+          <div class="insight-media">
+            <img class="on" src="assets/img/app-boxer-portrait.jpg" alt="A boxer resting between rounds, head down">
+            <img src="assets/img/insight-tennis.jpg" alt="A tennis player at the baseline holding a ball" loading="lazy">
+            <img src="assets/img/insight-pickleball.jpg" alt="A pickleball player at the kitchen line" loading="lazy">
+            <img src="assets/img/insight-golf.jpg" alt="A golfer at the top of his swing" loading="lazy">
+          </div>
+          <div class="insight-body">
+            <div class="insight-slides">
+            <div class="insight-slide on">
+              <span class="eyebrow">Sample insight · Impact · Boxing</span>
+              <p class="msg">From round 3 onward, your lead hand is <em>0.18 s slower</em> getting back to guard after each jab, which leaves you open to a counter right. Next session: 3 × 2 min of jab-and-return on the bag, focusing on bringing the hand back quickly.</p>
+              <div class="msg-meta"><span>Session 14</span><span>412 punches</span><span>Guard score 71 → target 85</span></div>
+            </div>
+            <div class="insight-slide">
+              <span class="eyebrow">Sample insight · Vortex · Tennis</span>
+              <p class="msg">On high forehands (above shoulder height) you are hitting the ball <em>11 cm behind your front hip</em>, and your topspin drops by about 20%. Next session: 4 × 12 high-ball feeds, hitting the ball further in front and finishing over your shoulder.</p>
+              <div class="msg-meta"><span>Session 9</span><span>286 strokes</span><span>Forehand score 74 → target 82</span></div>
+            </div>
+            <div class="insight-slide">
+              <span class="eyebrow">Sample insight · Titan · Pickleball</span>
+              <p class="msg">In rallies longer than 8 shots, your paddle face opens by <em>7° on backhand dinks</em>, which is causing your pop-ups. Next session: 3 × 5 min of cross-court dinking with the paddle tip up and the face closed.</p>
+              <div class="msg-meta"><span>Session 21</span><span>1,140 shots</span><span>Pop-up rate 14% → target 6%</span></div>
+            </div>
+            <div class="insight-slide">
+              <span class="eyebrow">Sample insight · Scythe · Golf</span>
+              <p class="msg">On the back nine your tempo goes from 3.0 : 1 to <em>3.6 : 1</em>, and when that happens the face is 4° open at impact. Next range session: 30 balls with a slow two-count backswing, then 10 at full speed.</p>
+              <div class="msg-meta"><span>Round 6</span><span>38 full swings</span><span>Face angle +3.8° → target ±1°</span></div>
+            </div>
+            </div>
+            <div class="insight-nav">
+              <button class="insight-arrow prev" type="button" aria-label="Previous insight"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 5l-7 7 7 7"/></svg></button>
+              <div class="insight-dots" role="group" aria-label="Choose a sport">
+                <button type="button" aria-current="true" aria-label="Boxing insight"></button>
+                <button type="button" aria-current="false" aria-label="Tennis insight"></button>
+                <button type="button" aria-current="false" aria-label="Pickleball insight"></button>
+                <button type="button" aria-current="false" aria-label="Golf insight"></button>
+              </div>
+              <button class="insight-arrow next" type="button" aria-label="Next insight"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 5l7 7-7 7"/></svg></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section tone-b">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="reveal">
+            <span class="eyebrow">Inside the app</span>
+            <h2 class="h-lg">Everything in one app</h2>
+          </div>
+          <p class="lede reveal" data-delay="1">Every Kinesis product you own shows up in the app. Tap on one to see its sessions and technique data.</p>
+        </div>
+        <div class="collage reveal">
+          <div class="ph c1"><span>App screenshot: my gear</span></div>
+          <div class="ph c2"><span>App screenshot: session summary</span></div>
+          <div class="ph c3"><span>App screenshot: technique trends</span></div>
+          <div class="ph c4"><span>App screenshot: coach feedback</span></div>
+          <div class="ph c5"><span>App screenshot: drill plan</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section tone-a" id="plans">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="reveal">
+            <span class="eyebrow">Plans</span>
+            <h2 class="h-lg">Pick a plan</h2>
+          </div>
+          <p class="lede reveal" data-delay="1">Basic tracking is free with every product. The AI coach is a paid subscription, and the first 3 months are free when you buy any product with sensors.</p>
+        </div>
+        <div class="plans" id="plans-grid"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer"></footer>
+
+  <script src="assets/js/products.js"></script>
+  <script>
+    (function () {
+      var tick = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
+      document.getElementById('plans-grid').innerHTML = KINESIS.plans.map(function (p, i) {
+        var price = typeof p.price === 'number' ? KINESIS.formatINR(p.price) + '<small>' + p.per + '</small>' : p.price;
+        return '<article class="plan reveal' + (p.featured ? ' featured' : '') + '" data-delay="' + i + '">' +
+          '<div class="plan-top"><h3 class="h-md">' + p.name + '</h3>' + (p.featured ? '<span class="badge">Recommended</span>' : '') + '</div>' +
+          '<div class="price">' + price + '</div>' +
+          '<p class="note">' + p.note + '</p>' +
+          '<ul>' + p.items.map(function (it) { return '<li>' + tick + '<span>' + it + '</span></li>'; }).join('') + '</ul>' +
+        '</article>';
+      }).join('');
+
+      // insight slideshow: changes only on a dot or arrow click (no autoplay)
+      var box = document.getElementById('insight');
+      var imgs = box.querySelectorAll('.insight-media img'), slides = box.querySelectorAll('.insight-slide'), dots = box.querySelectorAll('.insight-dots button');
+      var cur = 0;
+      function show(i) {
+        cur = (i + slides.length) % slides.length;
+        [imgs, slides].forEach(function (set) { set.forEach(function (el, k) { el.classList.toggle('on', k === cur); }); });
+        dots.forEach(function (b, k) { b.setAttribute('aria-current', k === cur ? 'true' : 'false'); });
+      }
+      dots.forEach(function (d, i) { d.addEventListener('click', function () { show(i); }); });
+      box.querySelector('.insight-arrow.prev').addEventListener('click', function () { show(cur - 1); });
+      box.querySelector('.insight-arrow.next').addEventListener('click', function () { show(cur + 1); });
+    })();
+  </script>
+  <script src="assets/js/site.js"></script>
+</body>
+</html>
