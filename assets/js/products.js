@@ -18,7 +18,7 @@ KINESIS.products = [
     img: 'assets/img/shop-impact.jpg',
     hero: 'assets/img/shop-impact-hero.jpg',
     heroPos: 'center',
-    blurb: 'Leather training gloves with a motion sensor in the cuff and 12 impact sensors over the knuckles. They record which punch you threw, how fast it was and how hard it landed.',
+    blurb: 'Training gloves in premium synthetic leather with a sealed sensor in the cuff. It records which punch you threw, how fast it was and how hard it landed.',
     options: [
       { label: 'Weight', values: ['10 oz', '12 oz', '14 oz', '16 oz'], def: 2 }
     ],
@@ -30,13 +30,13 @@ KINESIS.products = [
       'Defensive movement: slips, blocks, parries'
     ],
     specs: [
-      ['Sensors', 'Accelerometer + gyroscope, 12 impact sensors per glove'],
-      ['Sampling', '1,000 Hz'],
-      ['Battery', 'Up to 20 h · wireless charging'],
-      ['Connectivity', 'Bluetooth 5.3'],
-      ['Shell', 'Full-grain leather, triple-density foam']
+      ['Sensors', 'One motion and impact sensor per glove, in the cuff'],
+      ['Range', 'Motion up to 16 g, impacts up to 320 g'],
+      ['Charging', 'Magnetic cable'],
+      ['Connectivity', 'Bluetooth'],
+      ['Shell', 'Premium synthetic leather, triple-density foam']
     ],
-    inBox: 'Pair of gloves · charging dock cable · 3 months of Kinesis Coach'
+    inBox: 'Pair of gloves · magnetic charging cable · 3 months of Kinesis Coach'
   },
   {
     id: 'vortex',
@@ -182,13 +182,6 @@ KINESIS.products = [
     ],
     specs: [['Material', 'Cabretta leather'], ['Closure', 'Adjustable tab']],
     inBox: 'One glove'
-  },
-  {
-    id: 'dock', group: 'essentials', sport: 'Accessories', name: 'Charging Dock', type: 'Four-device wireless dock',
-    price: 2499, img: 'assets/img/shop-dock.jpg', hero: 'assets/img/shop-dock-hero.jpg', heroPos: 'center',
-    blurb: 'An aluminium dock that charges up to four Kinesis products at once and syncs your sessions to the app while they charge.',
-    specs: [['Output', 'Up to 4 devices'], ['Input', 'USB-C PD, 30 W'], ['Finish', 'Anodised aluminium']],
-    inBox: 'Dock · 1.5 m USB-C cable'
   }
 ];
 
