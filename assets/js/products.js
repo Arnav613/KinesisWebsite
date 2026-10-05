@@ -14,7 +14,7 @@ KINESIS.products = [
     sport: 'Boxing',
     name: 'Impact',
     type: 'Smart boxing gloves',
-    price: 12999,
+    price: 5999,
     img: 'assets/img/shop-impact.jpg',
     hero: 'assets/img/shop-impact-hero.jpg',
     heroPos: 'center',
@@ -44,7 +44,7 @@ KINESIS.products = [
     sport: 'Tennis',
     name: 'Vortex',
     type: 'Smart tennis racket',
-    price: 21999,
+    price: 13999,
     img: 'assets/img/shop-vortex.jpg',
     hero: 'assets/img/shop-vortex-hero.jpg',
     heroPos: 'center',
@@ -76,7 +76,7 @@ KINESIS.products = [
     sport: 'Pickleball',
     name: 'Titan',
     type: 'Smart pickleball paddle',
-    price: 14999,
+    price: 9999,
     img: 'assets/img/shop-titan.jpg',
     hero: 'assets/img/shop-titan-hero.jpg',
     heroPos: 'center',
@@ -106,7 +106,7 @@ KINESIS.products = [
     sport: 'Golf',
     name: 'Scythe',
     type: 'Smart driver',
-    price: 27999,
+    price: 19999,
     img: 'assets/img/shop-scythe.jpg',
     hero: 'assets/img/shop-scythe-hero.jpg',
     heroPos: 'center',
@@ -271,14 +271,18 @@ KINESIS.hero = [
 KINESIS.plans = [
   {
     name: 'Track', price: 'Free', per: '', note: 'Included with every Kinesis product',
-    items: ['Session stats and rep counts', 'Movement classification', '30-day history']
+    items: ['Session stats and rep counts', 'Movement classification', 'Progress over time', 'Leaderboards and challenges with friends']
   },
   {
-    name: 'Coach', price: 1199, per: '/ month', note: 'or ₹11,999 a year · first 3 months free with gear', featured: true,
-    items: ['Everything in Track', 'AI coach feedback after every session', 'Pattern and habit detection', 'Fatigue and form-decay alerts', 'Personal drill plans', 'Unlimited history']
+    name: 'Coach', price: 299, per: '/ month', note: 'or ₹2,499 a year · first 3 months free with gear', featured: true,
+    items: ['Everything in Track', 'AI coach feedback after every session', 'Pattern and habit detection', 'Fatigue and form-decay alerts', 'Personal drill plans', 'Covers all your Kinesis gear']
   },
   {
-    name: 'Academy', price: 999, per: '/ athlete / month', note: 'For gyms, academies and teams · from 10 athletes',
-    items: ['Coach for every athlete', 'Dashboard for coaches', 'Progress reports for athletes and parents', 'Bulk hardware pricing']
+    name: 'Coach+', price: 1999, per: '/ month', note: 'For athletes who want a person as well as the AI',
+    items: ['Everything in Coach', 'Monthly video review by a certified coach who has seen your data']
+  },
+  {
+    name: 'Academy', price: 2499, per: '/ month', note: 'Per gym, academy or team · 20 athletes included, then ₹99 each',
+    items: ['Coach for every athlete', 'Dashboard for the gym\'s trainers', 'Gym leaderboards', '10% off gear']
   }
 ];

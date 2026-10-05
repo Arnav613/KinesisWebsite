@@ -1060,7 +1060,7 @@ body.modal-open { overflow: hidden; }
 .collage .c4 { grid-column: span 4; grid-row: span 2; }
 .collage .c5 { grid-column: span 4; grid-row: span 1; }
 
-.plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.plans { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
 .plan {
   border: 1px solid var(--line);
   border-radius: 10px;
@@ -1076,7 +1076,7 @@ body.modal-open { overflow: hidden; }
   margin: 28px 0 6px;
   font-family: var(--f-display);
   font-variation-settings: 'wdth' 118;
-  font-size: 44px;
+  font-size: 38px;
   font-weight: 800;
   line-height: 1;
 }
@@ -1147,6 +1147,7 @@ body.modal-open { overflow: hidden; }
 @media (max-width: 1100px) {
   .grid-4 { grid-template-columns: repeat(2, 1fr); }
   .coach-grid { grid-template-columns: repeat(2, 1fr); }
+  .plans { grid-template-columns: repeat(2, 1fr); }
   .footer-grid { grid-template-columns: 1fr 1fr 1fr; }
   .footer-brand { grid-column: 1 / -1; }
 }
