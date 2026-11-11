@@ -1,5 +1,7 @@
 /* Product catalogue: shared by the home carousel, the order section and the shop.
-   Prices are in rupees. `img: null` renders an image placeholder. */
+   Prices are in rupees. `img: null` renders an image placeholder.
+   `soon: true` = not on sale yet (shown as "Coming soon", no Buy button).
+   `shopOnly: true` = in the shop but not in the home carousel / order list. */
 window.KINESIS = window.KINESIS || {};
 
 KINESIS.formatINR = function (n) {
@@ -8,6 +10,34 @@ KINESIS.formatINR = function (n) {
 
 KINESIS.products = [
   /* ---------- Instrumented ---------- */
+  {
+    id: 'pods',
+    group: 'instrumented',
+    shopOnly: true,
+    sport: 'Boxing',
+    name: 'Impact Pods',
+    type: 'Wrist sensor pods, pair',
+    price: 2499,
+    img: 'assets/img/shop-pods.jpg',
+    hero: 'assets/img/shop-pods-hero.jpg',
+    heroPos: 'center',
+    blurb: 'Two small motion sensors that strap onto your wrists, under or over the gloves you already own. They record every punch you throw: which punch it was, how fast it was, and how your form holds up through a session.',
+    measures: [
+      'Punch type: jab, cross, hooks and uppercuts',
+      'Hand speed of every punch, and how quickly it gets there',
+      'Combos, split into each punch',
+      'Guard: when your hands drop between punches',
+      'Output per round, and how much you slow down as you tire'
+    ],
+    specs: [
+      ['Fit', 'Straps onto your wrist, under or over any glove'],
+      ['Sensor', 'Accelerometer and gyroscope, read 200 times a second'],
+      ['Range', 'Up to 32 g and 4,000 °/s'],
+      ['Battery', 'About 30 hours per charge · USB-C'],
+      ['Connectivity', 'Bluetooth']
+    ],
+    inBox: 'Two pods · two wrist straps · USB-C cable · 3 months of Kinesis Coach'
+  },
   {
     id: 'impact',
     group: 'instrumented',
@@ -18,29 +48,30 @@ KINESIS.products = [
     img: 'assets/img/shop-impact.jpg',
     hero: 'assets/img/shop-impact-hero.jpg',
     heroPos: 'center',
-    blurb: 'Training gloves in premium synthetic leather with a sealed sensor in the cuff. It records which punch you threw, how fast it was and how hard it landed.',
+    blurb: 'Training gloves in premium synthetic leather with an Impact Pod sealed in each cuff. They record every punch you throw: which punch it was, how fast it was, and how your form holds up through a session.',
     options: [
       { label: 'Weight', values: ['10 oz', '12 oz', '14 oz', '16 oz'], def: 2 }
     ],
     measures: [
-      'Punch type: jab, cross, hook, uppercut',
-      'Hand speed and impact force per punch',
-      'Output volume by round',
-      'Guard position between punches',
-      'Defensive movement: slips, blocks, parries'
+      'Punch type: jab, cross, hooks and uppercuts',
+      'Hand speed of every punch, and how quickly it gets there',
+      'Combos, split into each punch',
+      'Guard: when your hands drop between punches',
+      'Output per round, and how much you slow down as you tire'
     ],
     specs: [
-      ['Sensors', 'One motion and impact sensor per glove, in the cuff'],
-      ['Range', 'Motion up to 16 g, impacts up to 320 g'],
-      ['Charging', 'Magnetic cable'],
+      ['Sensors', 'An Impact Pod sealed in each cuff'],
+      ['Range', 'Up to 32 g and 4,000 °/s, read 200 times a second'],
+      ['Charging', 'USB-C port on the cuff, about 30 hours per charge'],
       ['Connectivity', 'Bluetooth'],
       ['Shell', 'Premium synthetic leather, triple-density foam']
     ],
-    inBox: 'Pair of gloves · magnetic charging cable · 3 months of Kinesis Coach'
+    inBox: 'Pair of gloves · USB-C cable · 3 months of Kinesis Coach'
   },
   {
     id: 'vortex',
     group: 'instrumented',
+    soon: true,
     sport: 'Tennis',
     name: 'Vortex',
     type: 'Smart tennis racket',
@@ -73,6 +104,7 @@ KINESIS.products = [
   {
     id: 'titan',
     group: 'instrumented',
+    soon: true,
     sport: 'Pickleball',
     name: 'Titan',
     type: 'Smart pickleball paddle',
@@ -103,6 +135,7 @@ KINESIS.products = [
   {
     id: 'scythe',
     group: 'instrumented',
+    soon: true,
     sport: 'Golf',
     name: 'Scythe',
     type: 'Smart driver',
@@ -137,7 +170,7 @@ KINESIS.products = [
   {
     id: 'wraps', group: 'essentials', sport: 'Boxing', name: 'Hand Wraps', type: 'Elastic cotton wraps',
     price: 799, img: 'assets/img/shop-wraps.jpg', hero: 'assets/img/shop-wraps-hero.jpg', heroPos: 'center',
-    blurb: 'Semi-elastic cotton wraps with a thumb loop and velcro closure. They fit comfortably under the Impact gloves.',
+    blurb: 'Semi-elastic cotton wraps with a thumb loop and velcro closure. They fit comfortably under the Impact gloves, or under your own gloves with Impact Pods.',
     options: [
       { label: 'Length', values: ['120 in', '180 in'], def: 1 }
     ],
@@ -198,16 +231,16 @@ KINESIS.hero = [
     id: 'impact',
     label: 'Boxing',
     callouts: [
-      { ray: [0, 5, -0.12, 0, -1, 0], t: 'Punch ID', d: 'Tells a jab, cross, hook and uppercut apart from how the glove moves.' },
-      { ray: [0, 1.25, 5, 0, 0, -1], t: 'Impact force', d: 'Hand speed and force for every punch that lands.' },
+      { ray: [0, 5, -0.12, 0, -1, 0], t: 'Punch ID', d: 'Tells a jab, cross, hook and uppercut apart from how your hand moves.' },
+      { ray: [0, 1.25, 5, 0, 0, -1], t: 'Hand speed', d: 'How fast each punch travels, and how quickly it gets to top speed.' },
       { ray: [-5, 0.45, -0.2, 1, 0, 0], t: 'Guard discipline', d: 'Notices when your hands drop between punches.' },
       { ray: [0, -1.05, 5, 0, 0, -1], t: 'Round output', d: 'Punches per round, and how much you slow down as you tire.' }
     ],
     exo: [
-      { pt: 'pads', t: 'Impact array', d: '12 force sensors over the knuckles that show where each punch lands.' },
-      { pt: 'flex', t: 'Flex harness', d: 'A flexible circuit that bends with the glove and links the sensors.' },
-      { pt: 'imu', t: 'Motion core', d: 'Accelerometer and gyroscope, read 200 times a second.' },
-      { pt: 'cell', t: 'Cell + coil', d: '20-hour battery with wireless charging in the cuff.' }
+      { pt: 'pod', t: 'Impact Pod', d: 'A sealed pod in each cuff. It is the same pod we sell on its own for gloves you already have.' },
+      { pt: 'imu', t: 'Motion sensor', d: 'Accelerometer and gyroscope, read 200 times a second, up to 32 g.' },
+      { pt: 'chip', t: 'Bluetooth chip', d: 'Sends the motion data to your phone as you throw.' },
+      { pt: 'cell', t: 'Battery', d: 'About 30 hours of training per charge, over USB-C.' }
     ]
   },
   {
@@ -263,19 +296,15 @@ KINESIS.hero = [
 /* Subscription plans shown on the App page. */
 KINESIS.plans = [
   {
-    name: 'Track', price: 'Free', per: '', note: 'Included with every Kinesis product',
-    items: ['Session stats and rep counts', 'Movement classification', 'Progress over time', 'Leaderboards and challenges with friends']
+    name: 'Free', price: 0, per: '', note: 'Included with every Kinesis product',
+    items: ['Shadow rounds with punch count, type and speed', 'Session summaries', 'Speed, reaction and output tests', 'The first Learn unit', '30 days of history', 'One Pads round a day']
   },
   {
-    name: 'Coach', price: 299, per: '/ month', note: 'or ₹2,499 a year · first 3 months free with gear', featured: true,
-    items: ['Everything in Track', 'AI coach feedback after every session', 'Pattern and habit detection', 'Fatigue and form-decay alerts', 'Personal drill plans', 'Covers all your Kinesis gear']
+    name: 'Train', price: 99, per: '/ month', note: 'or ₹999 a year',
+    items: ['Everything in Free', 'Unlimited Pads', 'Training programs', 'Every Learn lesson', 'Unlimited history', 'Leaderboards']
   },
   {
-    name: 'Coach+', price: 1999, per: '/ month', note: 'For athletes who want a person as well as the AI',
-    items: ['Everything in Coach', 'Monthly video review by a certified coach who has seen your data']
-  },
-  {
-    name: 'Academy', price: 2499, per: '/ month', note: 'Per gym, academy or team · 20 athletes included, then ₹99 each',
-    items: ['Coach for every athlete', 'Dashboard for the gym\'s trainers', 'Gym leaderboards', '10% off gear']
+    name: 'Coach', price: 199, per: '/ month', note: 'or ₹1,799 a year · first 3 months free with every product', featured: true,
+    items: ['Everything in Train', 'Training plans made from your data', 'A debrief after every session', 'Chat with the AI coach about your training']
   }
 ];

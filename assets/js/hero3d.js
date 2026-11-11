@@ -506,51 +506,45 @@
     g.position.sub(new V3(sc.x, bc.y, sc.z));
     p.model.updateMatrixWorld(true);
 
-    /* --- inside --- */
-    var padGeo = new T.BoxGeometry(.11, .11, .022), sum = new V3(), nsum = new V3(), cnt = 0;
-    [-.3, -.12, .06].forEach(function (z) {
-      [-.27, -.09, .09, .27].forEach(function (x) {
-        var h = castOn(leather, new V3(x, 5, z), new V3(0, -1, 0));
-        if (!h) return;
-        var pad = p.glow(padGeo);
-        pad.position.copy(h.p).addScaledVector(h.n, -.1);
-        pad.lookAt(pad.position.clone().add(h.n));
-        sum.add(pad.position); nsum.add(h.n); cnt++;
-      });
+    /* --- inside: one sealed Impact Pod in the cuff (the same pod sold on its own) --- */
+    var PX = 0, PY = -1.05, PZ = .1, HW = .27, HH = .18;   // pod centre and half size (x, y)
+    // housing outline: two glowing rounded rectangles, top and bottom of the pod
+    function podRing(z) {
+      var pts = [], r = .06;
+      [[HW - r, HH - r, 0], [-(HW - r), HH - r, Math.PI / 2], [-(HW - r), -(HH - r), Math.PI], [HW - r, -(HH - r), Math.PI * 1.5]]
+        .forEach(function (c) {
+          for (var k = 0; k <= 4; k++) {
+            var a = c[2] + (Math.PI / 2) * k / 4;
+            pts.push(new V3(PX + c[0] + Math.cos(a) * r, PY + c[1] + Math.sin(a) * r, z));
+          }
+        });
+      return new T.CatmullRomCurve3(pts, true);
+    }
+    [PZ - .07, PZ + .07].forEach(function (z) {
+      p.glow(sweep(podRing(z), { closed: true, up: Z_UP, radial: 6, segs: 96, r: .007 }).geo);
     });
-    sum.multiplyScalar(1 / Math.max(1, cnt));
-    p.point('pads', sum, cnt ? nsum.normalize().add(new V3(0, 0, .6)) : Y_UP);
+    p.point('pod', new V3(PX - HW, PY + HH * .4, PZ + .07), new V3(-.6, 0, 1));
 
-    var flexPts = [sum.clone()];
-    [1.05, .5, -.05].forEach(function (y) {
-      var h = castOn(leather, new V3(0, y, 5), new V3(0, 0, -1));
-      if (h) flexPts.push(h.p.addScaledVector(h.n, -.13));
-    });
-    flexPts.push(new V3(0, -.62, .19), new V3(0, -.92, .17));
-    var flexCurve = new T.CatmullRomCurve3(flexPts);
-    p.glow(sweep(flexCurve, { radial: 8, segs: 70, rN: .045, rB: .007 }).geo);
-    p.flow(flexCurve, 4, .3);
-    p.point('flex', flexCurve.getPointAt(.45), Z_UP);
+    var cell = p.part(new T.BoxGeometry(.4, .27, .05), { color: 0x7c8a9c, metalness: .8, roughness: .35 });
+    cell.position.set(PX, PY, PZ - .035);
+    var lbl = p.glow(new T.BoxGeometry(.28, .022, .052)); lbl.position.set(PX, PY + .08, PZ - .035);
+    p.point('cell', new V3(PX, PY - .06, PZ - .035), new V3(0, -.3, -1));
 
-    var pcb = p.part(new T.BoxGeometry(.38, .26, .02), { color: 0x0f3a2e, roughness: .5, metalness: .2 });
-    pcb.position.set(0, -1.05, .17);
-    var imu = p.glow(new T.BoxGeometry(.09, .09, .028)); imu.position.set(-.09, -1.03, .19);
-    var mcu = p.part(new T.BoxGeometry(.12, .12, .024), { color: 0x0b0e12, roughness: .4 }); mcu.position.set(.07, -1.07, .188);
-    var ble = p.part(new T.BoxGeometry(.09, .05, .018), { color: 0x9aa6b4, metalness: .9, roughness: .3 }); ble.position.set(.13, -.96, .186);
+    var pcb = p.part(new T.BoxGeometry(.42, .28, .016), { color: 0x0f3a2e, roughness: .5, metalness: .2 });
+    pcb.position.set(PX, PY, PZ + .02);
+    var imu = p.glow(new T.BoxGeometry(.08, .08, .024)); imu.position.set(PX - .11, PY + .03, PZ + .04);
     p.point('imu', imu.position, Z_UP);
+    var mcu = p.part(new T.BoxGeometry(.12, .12, .022), { color: 0x0b0e12, roughness: .4 }); mcu.position.set(PX + .07, PY - .02, PZ + .039);
+    var ant = p.part(new T.BoxGeometry(.1, .035, .012), { color: 0x9aa6b4, metalness: .9, roughness: .3 }); ant.position.set(PX + .1, PY + .09, PZ + .035);
+    p.point('chip', mcu.position, Z_UP);
+    // USB-C port on the cuff edge of the pod
+    var usb = p.part(new T.BoxGeometry(.035, .1, .035), { color: 0xc9d1da, metalness: .95, roughness: .25 });
+    usb.position.set(PX + HW + .005, PY, PZ);
 
-    var cell = p.part(new T.BoxGeometry(.36, .24, .05), { color: 0x7c8a9c, metalness: .8, roughness: .35 });
-    cell.position.set(0, -1.05, -.17);
-    var lbl = p.glow(new T.BoxGeometry(.26, .025, .052)); lbl.position.set(0, -.98, -.17);
-    p.point('cell', cell.position, new V3(0, 0, -1));
-
-    [[.44, .2, -1.42], [.4, .17, -1.45]].forEach(function (c) {
-      var coil = sweep(new Ellipse3(0, c[2], 0, c[0], c[1], 'xz'), { closed: true, up: Y_UP, radial: 8, segs: 96, r: .01 });
-      p.part(coil.geo, { color: 0xc27a45, metalness: .9, roughness: .3, emissive: 0x6a3510, emissiveIntensity: .4 });
-    });
-    var toCell = new T.CatmullRomCurve3([new V3(.17, -1.05, .16), new V3(.42, -1.08, 0), new V3(.17, -1.05, -.16)]);
-    p.glow(sweep(toCell, { radial: 6, segs: 30, r: .008 }).geo);
-    p.flow(toCell, 2, .5);
+    // data trace: sensor → chip → antenna
+    var trace = new T.CatmullRomCurve3([imu.position.clone(), new V3(PX - .02, PY + .05, PZ + .034), mcu.position.clone(), ant.position.clone()]);
+    p.glow(sweep(trace, { radial: 6, segs: 40, r: .006 }).geo);
+    p.flow(trace, 2, .5);
 
     p.targetH = 3.35;
     p.anchorTargets = leather.concat(strap ? [strap] : []);
@@ -1207,7 +1201,7 @@
   function updateLabels(animate) {
     var p = products[cur];
     bigEl.textContent = p.def.label;
-    subEl.textContent = p.shop.name + ' · ' + KINESIS.formatINR(p.shop.price);
+    subEl.textContent = p.shop.name + ' · ' + (p.shop.soon ? 'Coming soon' : KINESIS.formatINR(p.shop.price));
     nameEl.setAttribute('href', 'shop.html#' + p.id);
     nameEl.setAttribute('aria-label', 'Open the ' + p.shop.name + ' listing in the shop');
     countEl.innerHTML = '<b>' + String(cur + 1).padStart(2, '0') + '</b> / ' + String(products.length).padStart(2, '0');

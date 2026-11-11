@@ -206,14 +206,14 @@
       var btn = document.getElementById('order-now');
       var label = document.getElementById('order-label');
       var img = document.getElementById('order-img');
-      var items = KINESIS.products.filter(function (p) { return p.group === 'instrumented'; });
+      var items = KINESIS.products.filter(function (p) { return p.group === 'instrumented' && !p.shopOnly; });
       var current = null;
 
       items.forEach(function (p, i) {
         var li = document.createElement('li');
         li.innerHTML = '<button type="button" data-id="' + p.id + '"><span class="i">0' + (i + 1) + '</span>' +
           '<span class="n">' + p.name + '<small>' + p.sport + '</small></span>' +
-          '<span class="p">' + KINESIS.formatINR(p.price) + '</span></button>';
+          '<span class="p">' + (p.soon ? 'Coming soon' : KINESIS.formatINR(p.price)) + '</span></button>';
         li.firstChild.addEventListener('click', function () {
           select(p.id);
           if (KINESIS.heroApi) KINESIS.heroApi.goTo(i);
@@ -226,7 +226,7 @@
         current = id;
         var p = KINESIS.byId(id);
         btn.href = 'shop.html#' + id;
-        btn.firstChild.textContent = 'Order the ' + p.name + ' ';
+        btn.firstChild.textContent = (p.soon ? 'See the ' : 'Order the ') + p.name + ' ';
         label.textContent = p.type;
         Array.prototype.forEach.call(list.querySelectorAll('button'), function (b) {
           b.setAttribute('aria-current', b.dataset.id === id ? 'true' : 'false');

@@ -15,7 +15,7 @@
   function card(p) {
     return '<button class="card" type="button" data-open="' + p.id + '" data-group="' + p.group + '">' +
       '<div class="card-media">' + media(p) +
-        (p.group === 'instrumented' ? '<span class="badge">Sensor inside</span>' : '') +
+        (p.soon ? '<span class="badge badge--soon">Coming soon</span>' : p.group === 'instrumented' ? '<span class="badge">Sensor inside</span>' : '') +
         '<span class="more" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>' +
       '</div>' +
       '<div class="card-info"><div><span class="mono">' + esc(p.sport) + '</span><h3>' + esc(p.name) + '</h3></div>' +
@@ -66,7 +66,8 @@
           '<span class="eyebrow">' + esc(p.sport) + (p.group === 'instrumented' ? ' · Instrumented' : '') + '</span>' +
           '<h2 class="h-xl" id="sheet-name">' + esc(p.name) + '</h2>' +
           '<div class="sheet-buy">' +
-            '<button class="btn btn--primary" type="button">Buy now</button>' +
+            (p.soon ? '<span class="btn btn--soon" aria-disabled="true">Coming soon</span>'
+                    : '<button class="btn btn--primary" type="button">Buy now</button>') +
             '<span class="price">' + fmt(p.price) + '</span>' +
             '<span class="mono">' + esc(p.type) + '</span>' +
           '</div>' +
