@@ -331,15 +331,6 @@ body[data-page="home"] .site-header:not(.scrolled) { background: #0b1017; }
     linear-gradient(180deg, transparent 0 62%, rgba(255, 255, 255, .025) 70%, rgba(0, 0, 0, .28) 100%),
     radial-gradient(ellipse 85% 80% at 50% 45%, transparent 55%, rgba(5, 7, 10, .65) 100%);
 }
-.hero::after {
-  content: '';
-  position: absolute;
-  left: 8%; right: 8%;
-  top: 70%;
-  height: 1px;
-  pointer-events: none;
-  background: linear-gradient(90deg, transparent, rgba(180, 200, 225, .14) 30%, rgba(180, 245, 66, .22) 50%, rgba(180, 200, 225, .14) 70%, transparent);
-}
 .hero-stage { position: absolute; inset: 0; }
 .hero canvas {
   position: absolute;
