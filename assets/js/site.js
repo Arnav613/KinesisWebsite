@@ -7,14 +7,14 @@
     header.className = 'site-header' + (page === 'home' ? '' : ' solid');
     header.innerHTML =
       '<div class="wrap">' +
-        '<div class="avatar" title="Signed in as Arnav" aria-label="Signed in as Arnav">A</div>' +
-        '<a class="wordmark" href="index.html" aria-label="Kinesis home">KINESIS</a>' +
         '<nav class="nav" aria-label="Main">' +
           '<a href="index.html"' + (page === 'home' ? ' aria-current="page"' : '') + '>Home</a>' +
           '<a href="shop.html"' + (page === 'shop' ? ' aria-current="page"' : '') + '>Shop</a>' +
           '<a href="app.html"' + (page === 'app' ? ' aria-current="page"' : '') + '>App</a>' +
           '<a href="about.html"' + (page === 'about' ? ' aria-current="page"' : '') + '>About</a>' +
         '</nav>' +
+        '<a class="wordmark" href="index.html" aria-label="Kinesis home">KINESIS</a>' +
+        '<div class="avatar" title="Signed in as Arnav" aria-label="Signed in as Arnav">A</div>' +
       '</div>';
 
     var onScroll = function () {
