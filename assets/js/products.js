@@ -206,7 +206,7 @@ KINESIS.hero = [
     exo: [
       { pt: 'pads', t: 'Impact array', d: '12 force sensors over the knuckles that show where each punch lands.' },
       { pt: 'flex', t: 'Flex harness', d: 'A flexible circuit that bends with the glove and links the sensors.' },
-      { pt: 'imu', t: 'Motion core', d: 'Accelerometer and gyroscope, read 1,000 times a second.' },
+      { pt: 'imu', t: 'Motion core', d: 'Accelerometer and gyroscope, read 200 times a second.' },
       { pt: 'cell', t: 'Cell + coil', d: '20-hour battery with wireless charging in the cuff.' }
     ]
   },
