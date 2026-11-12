@@ -21,7 +21,7 @@ KINESIS.products = [
     img: 'assets/img/shop-pods.jpg',
     hero: 'assets/img/shop-pods-hero.jpg',
     heroPos: 'center',
-    blurb: 'Two small motion sensors that strap onto your wrists, under or over the gloves you already own. They record every punch you throw: which punch it was, how fast it was, and how your form holds up through a session.',
+    blurb: 'Two small motion sensors that thread onto the wrist strap of the gloves you already own. They record every punch you throw: which punch it was, how fast it was, and how your form holds up through a session.',
     measures: [
       'Punch type: jab, cross, hooks and uppercuts',
       'Hand speed of every punch, and how quickly it gets there',
@@ -30,13 +30,13 @@ KINESIS.products = [
       'Output per round, and how much you slow down as you tire'
     ],
     specs: [
-      ['Fit', 'Straps onto your wrist, under or over any glove'],
+      ['Fit', 'Two loops on its base. Your glove’s wrist strap threads through them'],
       ['Sensor', 'Accelerometer and gyroscope, read 200 times a second'],
       ['Range', 'Up to 32 g and 4,000 °/s'],
       ['Battery', 'About 30 hours per charge · USB-C'],
       ['Connectivity', 'Bluetooth']
     ],
-    inBox: 'Two pods · two wrist straps · USB-C cable · 3 months of Kinesis Coach'
+    inBox: 'Two pods · USB-C cable · 3 months of Kinesis Coach'
   },
   {
     id: 'impact',
